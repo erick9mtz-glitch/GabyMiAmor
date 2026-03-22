@@ -33,23 +33,22 @@
 
         <div class="video-container">
             <video class="main-video" controls poster="Besito.png">
-                <source src="Gaby_pag.mp4" type="video/mp4">
+                <source src="gaby_pag.mp4" type="video/mp4">
                 Tu navegador no soporta el formato de video.
             </video>
         </div>
     </div>
 
     <script>
-        // --- CONFIGURACIÓN DE FECHA ---
-        // Pon aquí la fecha exacta en la que comenzó tu relación: Año, Mes (0-11, ej: 0=Enero), Día, Hora, Minuto, Segundo
-        const startDate = new Date(2025, 3, 18, 0, 0, 0) // Ejemplo: 1 de Enero de 2023, 12:00 AM
+     
+        const startDate = new Date(2025, 3, 18, 0, 0, 0) 
 
         function updateCountdown() {
             const now = new Date();
             const timeDifference = now - startDate;
 
             if (timeDifference < 0) {
-                // Si la fecha de inicio es en el futuro (no debería pasar para un año)
+              
                 document.getElementById('days').textContent = "0";
                 return;
             }
@@ -59,7 +58,7 @@
             const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-            // Cálculo de años (aproximado pero suficiente para un año)
+       
             const years = Math.floor(days / 365);
             const remainingDays = days % 365;
 
@@ -70,7 +69,6 @@
             document.getElementById('seconds').textContent = seconds;
         }
 
-        // Ejecutar inmediatamente y luego cada segundo
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
