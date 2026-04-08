@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Novia - 1 Año</title>
+    <title>Para Mi Hermosa Gaby</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="main-container">
+        
         <div class="love-card">
             <h1 class="card-title">Mi hermosa Gaby</h1>
             
             <div class="heart-tree-container">
-                <img src="heart_tree_frame.png" alt="Árbol de Corazones Amarillos" class="heart-tree-image">
+                <img src="heart_tree_frame.png" alt="Árbol de Corazones" class="heart-tree-image">
                 <span class="animated-heart"></span>
             </div>
             
@@ -31,37 +33,57 @@
             </div>
         </div>
 
-        <div class="video-container">
-    <video class="main-video" controls playsinline poster="besito.png" style="width: 100%; border-radius: 20px;">
-        <source src="video.mp4" type="video/mp4">
-        Tu navegador no soporta el formato de video.
-    </video>
-</div>
+        <div class="love-letter">
+            ❤️ <strong>Para la niña de mis ojos:</strong> <br>
+            "Gaby, eres lo mejor que me ha pasado en la vida. Gracias por este primer año lleno de risas, apoyo y momentos inolvidables. Eres increíble y quiero seguir caminando a tu lado por muchísimos años más."
+            <br>✨ ¡Te amo hoy y siempre! ✨
         </div>
+
+        <h2 class="album-section-title">Nuestros Momentos</h2>
+        <div class="photo-album">
+            <div class="photo-card">
+                <img src="besito.png" alt="Recuerdo 1">
+            </div>
+            <div class="photo-card">
+                <img src="foto1.jpg" alt="Recuerdo 2">
+            </div>
+            <div class="photo-card">
+                <img src="foto2.jpg" alt="Recuerdo 3">
+            </div>
+            <div class="photo-card">
+                <img src="foto3.jpg" alt="Recuerdo 4">
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video class="main-video" controls playsinline poster="besito.png">
+                <source src="video.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+
     </div>
 
     <script>
-     
-        const startDate = new Date(2025, 3, 18, 0, 0, 0) 
+        // Fecha de inicio: 18 de Abril de 2025
+        const startDate = new Date(2025, 3, 18, 0, 0, 0); 
 
         function updateCountdown() {
             const now = new Date();
             const timeDifference = now - startDate;
 
             if (timeDifference < 0) {
-              
                 document.getElementById('days').textContent = "0";
                 return;
             }
 
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const daysTotal = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-       
-            const years = Math.floor(days / 365);
-            const remainingDays = days % 365;
+            const years = Math.floor(daysTotal / 365);
+            const remainingDays = daysTotal % 365;
 
             document.getElementById('years').textContent = years;
             document.getElementById('days').textContent = remainingDays;
