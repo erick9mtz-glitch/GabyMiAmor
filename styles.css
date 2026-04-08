@@ -1,17 +1,14 @@
-/* Definición de Variables CSS */
 :root {
     --bg-color-pink: #FF69B4;
     --card-bg-color: #F8F1E7;
     --text-color-primary: #5A5A5A;
     --count-number-color: #BDB76B;
     --font-handwritten: 'Dancing Script', cursive;
-    --heart-tree-image: url('heart_tree_frame.png');
 }
 
-/* Estilos Globales */
 body {
     margin: 0;
-    padding: 20px 0; /* Un poco de espacio arriba y abajo */
+    padding: 20px 0;
     background-color: var(--bg-color-pink);
     background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"%3E%3Cpath fill="%23fff" fill-opacity=".3" d="M25 10c-3 0-5.5-2.5-5.5-5.5S22 0 25 0s5.5 2.5 5.5 5.5S28 10 25 10zm-5.5 0c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5s-2.5 5.5-5.5 5.5s-5.5-2.5-5.5-5.5z"/%3E%3C/svg%3E');
     font-family: Arial, sans-serif;
@@ -30,7 +27,6 @@ body {
     max-width: 600px;
 }
 
-/* Estilos de la Tarjeta Principal */
 .love-card {
     background-color: var(--card-bg-color);
     padding: 30px;
@@ -49,7 +45,6 @@ body {
     font-family: var(--font-handwritten);
 }
 
-/* Estilos de la Carta de Amor */
 .love-letter {
     background-color: white;
     padding: 25px;
@@ -64,7 +59,6 @@ body {
     border-left: 8px solid var(--count-number-color);
 }
 
-/* Estilos del Álbum de Fotos */
 .album-section-title {
     font-family: var(--font-handwritten);
     color: white;
@@ -76,29 +70,34 @@ body {
 .photo-album {
     width: 100%;
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
-    gap: 15px;
-    padding: 15px 5px;
-    scrollbar-width: none; /* Esconde scroll en Firefox */
+    gap: 20px;
+    padding: 20px 10px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
 }
 
 .photo-album::-webkit-scrollbar {
-    display: none; /* Esconde scroll en Chrome/Safari */
+    display: none;
 }
 
 .photo-card {
     min-width: 250px;
+    max-width: 250px;
     background: white;
     padding: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 35px;
     border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transform: rotate(-2deg); /* Efecto foto Polaroid */
-    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
 .photo-card:nth-child(even) {
-    transform: rotate(2deg);
+    transform: rotate(3deg);
 }
 
 .photo-card img {
@@ -113,7 +112,6 @@ body {
     z-index: 10;
 }
 
-/* Estilos del Árbol de Corazones */
 .heart-tree-container {
     position: relative;
     display: inline-block;
@@ -144,7 +142,6 @@ body {
     100% { transform: translate(-50%, -100px) scale(0); opacity: 0; }
 }
 
-/* Estilos del Contador */
 .timer-label {
     font-size: 1.1rem;
     color: var(--text-color-primary);
@@ -170,7 +167,6 @@ body {
     font-size: 1.8rem;
 }
 
-/* Estilos del Video */
 .video-container {
     width: 100%;
     border-radius: 15px;
@@ -184,10 +180,10 @@ body {
     display: block;
 }
 
-/* Diseño Adaptable (Móvil) */
 @media (max-width: 480px) {
     .love-card { padding: 20px; }
     .card-title { font-size: 2rem; }
     .love-letter { font-size: 1.3rem; }
-    .photo-card { min-width: 200px; }
+    .photo-card { min-width: 200px; max-width: 200px; }
+    .photo-card img { height: 240px; }
 }
