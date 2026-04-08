@@ -3,21 +3,20 @@
     --bg-color-pink: #FF69B4;
     --card-bg-color: #F8F1E7;
     --text-color-primary: #5A5A5A;
-    --count-number-color: #BDB76B; /* Color de los números del contador */
-    --font-handwritten: 'Dancing Script', cursive; /* Fuente elegante si "Te Amo" no está */
-    --heart-tree-image: url('heart_tree_frame.png'); /* Ruta a la imagen del árbol */
-    --video-poster-image: url('poster.png'); /* Ruta a la imagen del póster del video */
+    --count-number-color: #BDB76B;
+    --font-handwritten: 'Dancing Script', cursive;
+    --heart-tree-image: url('heart_tree_frame.png');
 }
 
 /* Estilos Globales */
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px 0; /* Un poco de espacio arriba y abajo */
     background-color: var(--bg-color-pink);
-    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"%3E%3Cpath fill="%23fff" fill-opacity=".3" d="M25 10c-3 0-5.5-2.5-5.5-5.5S22 0 25 0s5.5 2.5 5.5 5.5S28 10 25 10zm-5.5 0c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5s-2.5 5.5-5.5 5.5s-5.5-2.5-5.5-5.5z"/%3E%3C/svg%3E'); /* Fondo de corazones difuminados (SVG) */
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"%3E%3Cpath fill="%23fff" fill-opacity=".3" d="M25 10c-3 0-5.5-2.5-5.5-5.5S22 0 25 0s5.5 2.5 5.5 5.5S28 10 25 10zm-5.5 0c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5s-2.5 5.5-5.5 5.5s-5.5-2.5-5.5-5.5z"/%3E%3C/svg%3E');
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
 }
@@ -26,12 +25,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Espacio entre tarjeta y video */
+    gap: 25px; 
     width: 90%;
-    max-width: 600px; /* Ancho máximo para que se vea bien en todas las pantallas */
+    max-width: 600px;
 }
 
-/* Estilos de la Tarjeta */
+/* Estilos de la Tarjeta Principal */
 .love-card {
     background-color: var(--card-bg-color);
     padding: 30px;
@@ -39,6 +38,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .card-title {
@@ -46,6 +46,71 @@ body {
     color: var(--text-color-primary);
     margin-top: 0;
     margin-bottom: 20px;
+    font-family: var(--font-handwritten);
+}
+
+/* Estilos de la Carta de Amor */
+.love-letter {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--font-handwritten);
+    font-size: 1.6rem;
+    color: #444;
+    line-height: 1.4;
+    border-left: 8px solid var(--count-number-color);
+}
+
+/* Estilos del Álbum de Fotos */
+.album-section-title {
+    font-family: var(--font-handwritten);
+    color: white;
+    font-size: 2.2rem;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.photo-album {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px 5px;
+    scrollbar-width: none; /* Esconde scroll en Firefox */
+}
+
+.photo-album::-webkit-scrollbar {
+    display: none; /* Esconde scroll en Chrome/Safari */
+}
+
+.photo-card {
+    min-width: 250px;
+    background: white;
+    padding: 10px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transform: rotate(-2deg); /* Efecto foto Polaroid */
+    transition: transform 0.3s;
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.photo-card:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 10;
 }
 
 /* Estilos del Árbol de Corazones */
@@ -61,7 +126,6 @@ body {
     border-radius: 10px;
 }
 
-/* Animación de Corazón (Similar a la original) */
 .animated-heart {
     position: absolute;
     bottom: 0;
@@ -69,7 +133,7 @@ body {
     transform: translateX(-50%);
     width: 10px;
     height: 10px;
-    background-color: #FFD700; /* Oro/Amarillo para los corazones */
+    background-color: #FFD700;
     border-radius: 50%;
     animation: heartFloat 2s infinite ease-out;
 }
@@ -97,7 +161,7 @@ body {
 .countdown-display {
     font-size: 1.5rem;
     color: var(--text-color-primary);
-    font-family: var(--font-handwritten); /* Usando una fuente manuscrita */
+    font-family: var(--font-handwritten);
 }
 
 .countdown-display span {
@@ -106,11 +170,11 @@ body {
     font-size: 1.8rem;
 }
 
-/* Estilos del Reproductor de Video */
+/* Estilos del Video */
 .video-container {
     width: 100%;
     border-radius: 15px;
-    overflow: hidden; /* Para que el video siga la forma redondeada del contenedor */
+    overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -122,16 +186,8 @@ body {
 
 /* Diseño Adaptable (Móvil) */
 @media (max-width: 480px) {
-    .love-card {
-        padding: 20px;
-    }
-    .card-title {
-        font-size: 2rem;
-    }
-    .countdown-display {
-        font-size: 1.2rem;
-    }
-    .countdown-display span {
-        font-size: 1.5rem;
-    }
+    .love-card { padding: 20px; }
+    .card-title { font-size: 2rem; }
+    .love-letter { font-size: 1.3rem; }
+    .photo-card { min-width: 200px; }
 }
